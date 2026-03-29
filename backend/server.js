@@ -22,10 +22,16 @@ mongoose.connect(process.env.MONGO_URI)
 
 app.post("/contact", async (req, res) => {
   try {
+    console.log("Incoming:", req.body); 
+
     const contact = new Contact(req.body);
     await contact.save();
+
+    console.log("Saved!"); 
+
     res.json({ message: "Message sent successfully!" });
   } catch (err) {
+    console.log("Error:", err); 
     res.status(500).json({ error: err.message });
   }
 });
