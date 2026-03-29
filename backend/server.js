@@ -20,7 +20,7 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.log(err));
 
 
-aapp.post("/contact", async (req, res) => {
+app.post("/contact", async (req, res) => {
   try {
     console.log("Incoming:", req.body);
 
