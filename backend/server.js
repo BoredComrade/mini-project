@@ -25,7 +25,7 @@ app.post("/contact", async (req, res) => {
     res.json({ message: "Message sent successfully!" });
   } catch (err) {
     res.status(500).json({ error: err.message });
-  }
+  });
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/index.html"));
