@@ -1,3 +1,4 @@
+console.log("JS WORKING");
 document.getElementById("contactForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
