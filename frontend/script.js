@@ -1,4 +1,3 @@
-console.log("JS WORKING");
 document.getElementById("contactForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -19,10 +18,15 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
 
     const result = await response.json();
 
-    document.getElementById("response").innerText = result.message;
+  
+    if (response.ok) {
+      document.getElementById("response").innerText = result.message;
+    } else {
+      document.getElementById("response").innerText = result.error;
+    }
 
   } catch (error) {
     console.error(error);
-    document.getElementById("response").innerText = "Error sending message";
+    document.getElementById("response").innerText = "Something went wrong!";
   }
 });
