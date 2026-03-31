@@ -58,24 +58,24 @@ jobs:
       
       - name: Deploy backend to Render
         env:
-          RENDER_DEPLOY_HOOK_BACKEND: ${{ secrets.RENDER_DEPLOY_HOOK_BACKEND }}
+          RENDER_DEPLOY_HOOK_BACKEND: ${{ secrets.RENDER_DEPLOY_HOOK}}
         run: |
-          if [ -z "$RENDER_DEPLOY_HOOK_BACKEND" ]; then
-            echo "Error: RENDER_DEPLOY_HOOK_BACKEND secret is not set"
+          if [ -z "$RENDER_DEPLOY_HOOK" ]; then
+            echo "Error: RENDER_DEPLOY_HOOK secret is not set"
             exit 1
           fi
-          curl "$RENDER_DEPLOY_HOOK_BACKEND"
+          curl "$RENDER_DEPLOY_HOOK"
           echo "Backend deployment triggered"
       
       - name: Deploy frontend to Render
         env:
-          RENDER_DEPLOY_HOOK_FRONTEND: ${{ secrets.RENDER_DEPLOY_HOOK_FRONTEND }}
+          RENDER_DEPLOY_HOOK_FRONTEND: ${{ secrets.RENDER_DEPLOY_HOOK }}
         run: |
-          if [ -z "$RENDER_DEPLOY_HOOK_FRONTEND" ]; then
-            echo "Error: RENDER_DEPLOY_HOOK_FRONTEND secret is not set"
+          if [ -z "$RENDER_DEPLOY_HOOK" ]; then
+            echo "Error: RENDER_DEPLOY_HOOK secret is not set"
             exit 1
           fi
-          curl "$RENDER_DEPLOY_HOOK_FRONTEND"
+          curl "$RENDER_DEPLOY_HOOK"
           echo "Frontend deployment triggered"
       
       - name: Wait for deployments
