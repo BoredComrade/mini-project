@@ -11,15 +11,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 app.use(express.static(path.join(__dirname, "../frontend")));
+
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log("Mongo Error:", err));
-
-then(() => console.log("MongoDB Connected"))
-.catch(err => console.log("Mongo Error:", err));
 
 
 app.post("/contact", async (req, res) => {
@@ -34,7 +31,7 @@ app.post("/contact", async (req, res) => {
     res.json({ message: "Message sent successfully!" });
 
   } catch (err) {
-    console.log("ERROR:", err); 
+    console.log("ERROR:", err);
     res.status(500).json({ error: err.message });
   }
 });
