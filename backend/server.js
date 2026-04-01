@@ -14,11 +14,10 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "../frontend")));
 
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => console.log("Mongo Error:", err));
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
 .then(() => console.log("MongoDB Connected"))
 .catch(err => console.log("Mongo Error:", err));
 
